@@ -1,0 +1,52 @@
+================================================================
+A0/A1 UCHUN YOLO MODELLARINI O'QITISH - YO'RIQNOMA
+================================================================
+
+NIMA TAYYOR:
+  - dataset.zip ichida 176 ta annotatsiyalangan A0/A1 varaqasi
+    (150 train + 26 val), ikkita dataset: area (bloklar) va
+    circle (doirachalar). Eng og'ir ish - annotatsiya - bajarilgan.
+
+NEGA COLAB:
+  YOLO o'qitish uchun GPU kerak. Google Colab BEPUL GPU beradi.
+  CPU da o'qitish soatlab davom etadi va RAM yetmaydi.
+
+================================================================
+QADAMLAR
+================================================================
+
+1. https://colab.research.google.com ga kiring (Google akkaunt kerak)
+
+2. Yangi notebook oching: File -> New notebook
+
+3. GPU yoqing:
+   Runtime -> Change runtime type -> Hardware accelerator -> T4 GPU -> Save
+
+4. dataset.zip ni yuklang:
+   Chap tomondagi papka belgisini bosing -> Upload tugmasi ->
+   dataset.zip ni tanlang (136MB, biroz vaqt oladi)
+
+5. COLAB_train.py ichidagi har bir "katak" (--- N-katak ---) ni
+   alohida katakka nusxalab, ketma-ket ishga tushiring.
+   - 1-katak: o'rnatish
+   - 2-katak: yo'llarni tuzatish
+   - 3-katak: circle model (~10-15 daqiqa GPU da)
+   - 4-katak: area model (~5-10 daqiqa)
+   - 5-katak: ikkala modelni yuklab olish
+
+6. Yuklab olingan ikkita faylni dasturga qo'ying:
+   circle_a0a1.pt -> pmtests_pro/models/circle_a0a1/best.pt
+   area_a0a1.pt   -> pmtests_pro/models/area_a0a1/best.pt
+
+7. Menga xabar bering - dasturni yangi modellarni ishlatadigan
+   qilib yangilab beraman (A0/A1 ham YOLO bilan ishlaydi).
+
+================================================================
+NATIJA
+================================================================
+
+O'qitilgandan keyin A0/A1 ham Saralash kabi YOLO bilan
+tekshiriladi - egilgan/burilgan skanlarga chidamliroq bo'ladi.
+
+Agar natija yaxshi bo'lmasa: ko'proq namuna PDF yuboring,
+datasetni kattalashtiramiz va qayta o'qitamiz.
